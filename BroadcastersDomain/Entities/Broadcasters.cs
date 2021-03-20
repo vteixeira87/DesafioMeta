@@ -11,11 +11,10 @@ namespace BroadcastersDomain.Entities
 
         public Broadcasters() { }
 
-        public Broadcasters(int id, string name) 
+        public Broadcasters(string name) 
         {
-            AddNotifications(new BroadcastersContract(id, name));
+            AddNotifications(new BroadcastersContract( name));
 
-            Id = id;
             Name = name.ToLower();
         } 
 
@@ -28,7 +27,7 @@ namespace BroadcastersDomain.Entities
             Name = name.ToLower();
         }
 
-        public void UpdateBrodcasters()
+        public void NotBrodcastersForUpdate()
         {
             AddNotification("UpdateBrodcasters", "Non-existent broadcaster for update");
         }

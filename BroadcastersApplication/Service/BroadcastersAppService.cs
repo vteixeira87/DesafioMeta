@@ -41,7 +41,7 @@ namespace BroadcastersApplication.Service
             return broadcasterResponseList.Any() ? broadcasterResponseList : null;
         }
 
-        public async Task<BroadcastersResponse> GetByIdAsync(int id)
+        public async Task<BroadcastersResponse> GetByIdAsync(string id)
         {
             var broadcasters = await _broadcastersRepository.GetByIdAsync(id);
 
@@ -61,7 +61,7 @@ namespace BroadcastersApplication.Service
                 return null;
         }
 
-        public async Task<NotificationResultDto> DeleteAsync(int id)
+        public async Task<NotificationResultDto> DeleteAsync(string id)
         { 
 
             var broadcasters = await _broadcastersRepository.GetByIdAsync(id);

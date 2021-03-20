@@ -8,10 +8,10 @@ namespace BroadcastersDomain.Contract
 {
     public class BroadcastersContract : Contract<CreateBroadcastersCommand>
     {
-        public BroadcastersContract(int id, string brodcastersName)
-        {
-            Requires()
-                .IsGreaterThan(id, 0, "Id", "Id Invalid");
+        public BroadcastersContract(string id, string brodcastersName)
+        { 
+            if (string.IsNullOrWhiteSpace(id))
+                AddNotification(id, "Id Invalid");
 
             Requires().Matches(brodcastersName, "^[a-zA-Z0-9 ]*$", brodcastersName);
             

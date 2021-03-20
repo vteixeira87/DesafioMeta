@@ -1,4 +1,5 @@
 ﻿using Flunt.Notifications;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,8 @@ namespace BroadcastersCrossCutting.Entities
     public abstract class BroadcastersAudit : Entity
     {
         [BsonId]
-        public int Id { get; protected set; }   
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; protected set; }   
         public bool IsDeleted { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime LastModificationDate { get; set; }

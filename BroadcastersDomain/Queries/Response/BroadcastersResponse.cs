@@ -10,10 +10,10 @@ namespace BroadcastersDomain.Queries.Response
     {
         public BroadcastersResponse() { }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string BroadcastersName { get; set; }
 
-        public BroadcastersResponse(int id, string broadcastersName) 
+        public BroadcastersResponse(string id, string broadcastersName) 
         {
             Id = id;
             BroadcastersName = broadcastersName.CamelCase();

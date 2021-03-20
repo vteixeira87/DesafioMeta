@@ -21,6 +21,7 @@ namespace BroadcastersApplication
                     .AddCrossCuttingDependencies();
 
             services.AddScoped<IBroadcastersAppService, BroadcastersAppService>();
+            services.AddScoped<IAudienceAppService, AudienceAppService>();
 
 
             return services;

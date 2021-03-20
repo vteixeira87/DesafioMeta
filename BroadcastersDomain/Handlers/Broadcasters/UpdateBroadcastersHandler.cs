@@ -31,30 +31,32 @@ namespace BroadcastersDomain.Handlers
                     return _handlerResponse.Response(command.IsValid, command.Notifications);
 
 
-                var broadcasterEntitie = await _broadcastersRepository.GetByIdAsync(command.Id);
+                var broadcasterEntities = await _broadcastersRepository.GetByIdAsync(command.Id);
 
-                if (broadcasterEntitie != null)
+                if (broadcasterEntities != null)
                 {
                     var broadcaster = await _broadcastersRepository.GetByNameAsync(command.BrodcastersName);
 
                     if (broadcaster != null)
-                        broadcasterEntitie.NameUnavailable();
+                        broadcasterEntities.NameUnavailable();
 
-                    if (broadcasterEntitie.IsValid)
+                    if (broadcasterEntities.IsValid)
                     {
-                        broadcasterEntitie.Update(command.BrodcastersName);
+                        broadcasterEntities.Update(command.BrodcastersName);
 
-                        if (broadcasterEntitie.IsValid)
-                            await _broadcastersRepository.UpdateAsync(broadcasterEntitie);
+                        if (broadcasterEntities.IsValid)
+                            await _broadcastersRepository.UpdateAsync(broadcasterEntities);
                     }
 
-                    AddNotifications(broadcasterEntitie);
+                    AddNotifications(broadcasterEntities);
                 }
                 else
-                    broadcasterEntitie.UpdateBrodcasters();
-              
-
-
+                {
+                    var broadcasters = new Broadcasters();
+                    broadcasters.NotBrodcastersForUpdate();
+                    AddNotifications(broadcasters);
+                }
+                    
             }
             catch (Exception ex)
             {

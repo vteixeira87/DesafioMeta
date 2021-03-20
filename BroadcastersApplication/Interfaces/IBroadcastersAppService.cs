@@ -13,8 +13,8 @@ namespace BroadcastersApplication.Interfaces
     {
         Task<NotificationResultDto> CreateAsync(CreateBroadcastersCommand command);
         Task<NotificationResultDto> UpdatedAsync(UpdateBroadcastersCommand command);
-        Task<NotificationResultDto> DeleteAsync(int id);
-        Task<BroadcastersResponse> GetByIdAsync(int id);
+        Task<NotificationResultDto> DeleteAsync(string id);
+        Task<BroadcastersResponse> GetByIdAsync(string id);
         Task<List<BroadcastersResponse>> GetAllAsync();
         Task<BroadcastersResponse> GetByNameAsync(string name); 
     }

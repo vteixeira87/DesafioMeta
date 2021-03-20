@@ -15,8 +15,8 @@ namespace BroadcastersInfra.Repositories
         {
         }
 
-        public async Task<Broadcasters> GetByIdAsync(int id)
-           => await Collection.Find(x => x.Id == id && !x.IsDeleted).FirstOrDefaultAsync();
+        public async Task<Broadcasters> GetByIdAsync(string id)
+           => await Collection.Find(x => x.Id.Equals(id) && !x.IsDeleted).FirstOrDefaultAsync();
 
         public async Task<Broadcasters> GetByNameAsync(string name)
            => await Collection.Find(x => x.Name.ToLower() == name.ToLower() && !x.IsDeleted ).FirstOrDefaultAsync();

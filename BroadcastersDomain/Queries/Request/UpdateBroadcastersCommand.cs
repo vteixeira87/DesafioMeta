@@ -8,7 +8,7 @@ namespace BroadcastersDomain.Queries.Request
 {
     public class UpdateBroadcastersCommand : Notifiable<Notification>, IRequest<NotificationResultDto>
     { 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string BrodcastersName { get; set; }
          
 

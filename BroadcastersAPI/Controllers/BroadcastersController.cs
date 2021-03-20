@@ -26,7 +26,7 @@ namespace BroadcastersAPI.Controllers
         }
          
         [HttpGet("Id/{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(string id)
         {
             var response = await _broadcastersAppService.GetByIdAsync(id);
             return GetResponse(response);
@@ -57,7 +57,7 @@ namespace BroadcastersAPI.Controllers
 
       
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var notificationResult = await _broadcastersAppService.DeleteAsync(id);
             return Response(notificationResult);

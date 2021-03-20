@@ -30,11 +30,11 @@ namespace BroadcastersDomain.Handlers
                 if (!command.Valid())
                     return _handlerResponse.Response(command.IsValid, command.Notifications);
 
-                var broadcasterEntitie = await _broadcastersRepository.GetByNameAsync(command.BrodcastersName);
+                var broadcasterEntities = await _broadcastersRepository.GetByNameAsync(command.BrodcastersName);
 
-                var broadcaster = new Broadcasters(command.Id, command.BrodcastersName);
+                var broadcaster = new Broadcasters(command.BrodcastersName);
 
-                if (broadcasterEntitie != null)
+                if (broadcasterEntities != null)
                     broadcaster.NameUnavailable();
 
                 if (broadcaster.IsValid)

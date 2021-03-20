@@ -11,8 +11,7 @@ using System.Text;
 namespace BroadcastersDomain.Queries.Request
 {
     public class CreateBroadcastersCommand : Notifiable<Notification>, IRequest<NotificationResultDto>
-    { 
-        public int Id { get; set; }
+    {  
         public string BrodcastersName { get; set; }
          
 
@@ -23,7 +22,7 @@ namespace BroadcastersDomain.Queries.Request
         }
         public void Validate(CreateBroadcastersCommand command)
         {
-            AddNotifications(new BroadcastersContract(command.Id, command.BrodcastersName)); 
+            AddNotifications(new BroadcastersContract (command.BrodcastersName)); 
         }
 
     }

@@ -6,6 +6,6 @@ namespace BroadcastersDomain.Interfaces.Repositories
     public interface IBroadcastersRepository : IBaseRepository<Broadcasters>
     {
         Task<Broadcasters> GetByNameAsync(string name);
-        Task<Broadcasters> GetByIdAsync(int id);
+        Task<Broadcasters> GetByIdAsync(string id);
     }
 }
