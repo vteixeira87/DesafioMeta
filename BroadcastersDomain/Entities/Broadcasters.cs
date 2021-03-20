@@ -21,9 +21,26 @@ namespace BroadcastersDomain.Entities
 
         public string Name { get; private set; }
 
-        internal void NameUnavailable()
+        public void Update(string name)
+        {
+            AddNotifications(new BroadcastersContract(name));
+
+            Name = name.ToLower();
+        }
+
+        public void UpdateBrodcasters()
+        {
+            AddNotification("UpdateBrodcasters", "Non-existent broadcaster for update");
+        }
+
+        public void NameUnavailable()
         {
             AddNotification("BroadcasterName", "Broadcaster name already registered");
+        }
+
+        public void BrodcastersUnavailable()
+        {
+            AddNotification("BroadcasterDelete", "Non-existent broadcaster for delete");
         }
     }
 }

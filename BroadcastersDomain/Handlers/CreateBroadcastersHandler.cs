@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace BroadcastersDomain.Handlers
 {
-    public class BroadcastersHandler : Notifiable<Notification>, IRequestHandler<CreateBroadcastersCommand, NotificationResultDto>
+    public class CreateBroadcastersHandler : Notifiable<Notification>, IRequestHandler<CreateBroadcastersCommand, NotificationResultDto>
     {
         private readonly IBroadcastersRepository _broadcastersRepository;
         private readonly IHandlerResponse _handlerResponse;
 
-        public BroadcastersHandler(IBroadcastersRepository broadcastersRepository, IHandlerResponse handlerResponse)
+        public CreateBroadcastersHandler(IBroadcastersRepository broadcastersRepository, IHandlerResponse handlerResponse)
         {
             _broadcastersRepository = broadcastersRepository;
             _handlerResponse = handlerResponse;
@@ -30,7 +30,7 @@ namespace BroadcastersDomain.Handlers
                 if (!command.Valid())
                     return _handlerResponse.Response(command.IsValid, command.Notifications);
 
-                var broadcasterEntitie = await _broadcastersRepository.GetByName(command.BrodcastersName);
+                var broadcasterEntitie = await _broadcastersRepository.GetByNameAsync(command.BrodcastersName);
 
                 var broadcaster = new Broadcasters(command.Id, command.BrodcastersName);
 

@@ -1,6 +1,7 @@
 ﻿using BroadcastersCrossCutting.NotificationResult;
 using BroadcastersDomain.Entities;
 using BroadcastersDomain.Queries.Request;
+using BroadcastersDomain.Queries.Response;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,8 +14,8 @@ namespace BroadcastersApplication.Interfaces
         Task<NotificationResultDto> CreateAsync(CreateBroadcastersCommand command);
         Task<NotificationResultDto> UpdatedAsync(UpdateBroadcastersCommand command);
         Task<NotificationResultDto> DeleteAsync(int id);
-        Task<Broadcasters> GetByIdAsync(int id);
-        Task<List<Broadcasters>> GetAllAsync();
-        Task<Broadcasters> GetByNameAsync(string name); 
+        Task<BroadcastersResponse> GetByIdAsync(int id);
+        Task<List<BroadcastersResponse>> GetAllAsync();
+        Task<BroadcastersResponse> GetByNameAsync(string name); 
     }
 }

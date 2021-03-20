@@ -18,5 +18,13 @@ namespace BroadcastersDomain.Contract
             if (string.IsNullOrWhiteSpace(brodcastersName))
                 AddNotification(brodcastersName, "BrodcastersName Invalid");
         }
+
+        public BroadcastersContract(string brodcastersName)
+        { 
+            Requires().Matches(brodcastersName, "^[a-zA-Z0-9 ]*$", brodcastersName);
+
+            if (string.IsNullOrWhiteSpace(brodcastersName))
+                AddNotification(brodcastersName, "BrodcastersName Invalid");
+        }
     }
 }

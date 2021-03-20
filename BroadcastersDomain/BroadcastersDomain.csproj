@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\Response\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BroadcastersCrossCutting\BroadcastersCrossCutting.csproj" />
   </ItemGroup>
 

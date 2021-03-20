@@ -1,11 +1,7 @@
 ﻿using BroadcastersApplication.Interfaces;
 using BroadcastersCrossCutting.BaseControler;
-using BroadcastersCrossCutting.Interfaces;
 using BroadcastersDomain.Queries.Request;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 
@@ -21,22 +17,29 @@ namespace BroadcastersAPI.Controllers
         {
             _broadcastersAppService = broadcastersAppService;
         }
-
-        // GET: api/<BroadcastersController>
+         
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            var response = await _broadcastersAppService.GetAllAsync();
+            return GetResponse(response);
+        }
+         
+        [HttpGet("Id/{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var response = await _broadcastersAppService.GetByIdAsync(id);
+            return GetResponse(response);
         }
 
-        // GET api/<BroadcastersController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("name/{name}")]
+        public async Task<IActionResult> GetByName(string name)
         {
-            return "value";
+            var response = await _broadcastersAppService.GetByNameAsync(name);
+            return GetResponse(response);
         }
 
-       
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateBroadcastersCommand command)
         {
@@ -44,16 +47,20 @@ namespace BroadcastersAPI.Controllers
             return Response(notificationResult); 
         }
 
-        // PUT api/<BroadcastersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] UpdateBroadcastersCommand command)
         {
+            var notificationResult = await _broadcastersAppService.UpdatedAsync(command);
+            return Response(notificationResult);
         }
 
-        // DELETE api/<BroadcastersController>/5
+      
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var notificationResult = await _broadcastersAppService.DeleteAsync(id);
+            return Response(notificationResult);
         }
     }
 }

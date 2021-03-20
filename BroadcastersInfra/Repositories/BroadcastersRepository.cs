@@ -20,7 +20,7 @@ namespace BroadcastersInfra.Repositories
 
         public async Task<Broadcasters> GetByNameAsync(string name)
            => await Collection.Find(x => x.Name.ToLower() == name.ToLower() && !x.IsDeleted ).FirstOrDefaultAsync();
-
+         
 
     }
 }
