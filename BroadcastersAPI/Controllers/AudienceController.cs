@@ -2,6 +2,7 @@
 using BroadcastersCrossCutting.BaseControler;
 using BroadcastersDomain.Queries.Request;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 
@@ -19,16 +20,16 @@ namespace BroadcastersAPI.Controllers
         }
          
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] DateTime audienceDate)
         {
-            var response = await _audienceAppService.GetAllAsync();
+            var response = await _audienceAppService.GetAllByDateAsync(audienceDate);
             return GetResponse(response);
         }
           
-        [HttpGet("{name}")]
-        public async Task<IActionResult> GetByName(string name)
+        [HttpGet("/name")]
+        public async Task<IActionResult> GetByName([FromQuery] DateTime audienceDate, string name)
         {
-            var response = await _audienceAppService.GetByNameAsync(name);
+            var response = await _audienceAppService.GetByDateAndNameAsync(name, audienceDate);
             return GetResponse(response);
         }
 

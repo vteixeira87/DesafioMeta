@@ -5,6 +5,7 @@ using BroadcastersDomain.Interfaces.Repositories;
 using BroadcastersDomain.Queries.Request;
 using BroadcastersDomain.Queries.Response;
 using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,9 +30,9 @@ namespace BroadcastersApplication.Service
         public async Task<NotificationResultDto> UpdatedAsync(UpdateAudienceCommand command)
            => await _mediator.Send(command);
 
-        public async Task<List<AudienceResponse>> GetAllAsync()
+        public async Task<List<AudienceResponse>> GetAllByDateAsync(DateTime audienceDate)
         {
-            var audienceList = await _audienceRepository.GetAllAsync();
+            var audienceList = await _audienceRepository.GetAudienceByDateTimeAsync(audienceDate);
 
             var audienceResponseList = new List<AudienceResponse>();
 
@@ -41,9 +42,9 @@ namespace BroadcastersApplication.Service
             return audienceResponseList.Any() ? audienceResponseList : null;
         }
 
-        public async Task<List<AudienceResponse>> GetByNameAsync(string name)
+        public async Task<List<AudienceResponse>> GetByDateAndNameAsync(string name, DateTime audienceDate)
         {
-            var audienceList = await _audienceRepository.GetByNameAsync(name);
+            var audienceList = await _audienceRepository.GetAudienceByDateTimeAndNameAsync(audienceDate, name);
 
             var audienceResponseList = new List<AudienceResponse>();
 

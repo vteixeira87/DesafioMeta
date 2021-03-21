@@ -9,7 +9,8 @@ namespace BroadcastersDomain.Interfaces.Repositories
     public interface IAudienceRepository : IBaseRepository<Audience>
     {
         Task<Audience> GetAudienceByBroadcasterAndDateTimeAsync(string audienceBroadcaster, DateTime audienceDateTime);
-        Task<List<Audience>> GetByNameAsync(string name);
         Task<Audience> GetByIdAsync(string id);
+        Task<List<Audience>> GetAudienceByDateTimeAsync(DateTime audienceDateTime);
+        Task<List<Audience>> GetAudienceByDateTimeAndNameAsync(DateTime audienceDate, string audienceBroadcaster);
     }
 }

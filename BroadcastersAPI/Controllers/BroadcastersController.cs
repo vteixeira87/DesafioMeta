@@ -23,16 +23,9 @@ namespace BroadcastersAPI.Controllers
         {
             var response = await _broadcastersAppService.GetAllAsync();
             return GetResponse(response);
-        }
-         
-        [HttpGet("Id/{id}")]
-        public async Task<IActionResult> GetById(string id)
-        {
-            var response = await _broadcastersAppService.GetByIdAsync(id);
-            return GetResponse(response);
-        }
+        } 
 
-        [HttpGet("name/{name}")]
+        [HttpGet("{name}")]
         public async Task<IActionResult> GetByName(string name)
         {
             var response = await _broadcastersAppService.GetByNameAsync(name);

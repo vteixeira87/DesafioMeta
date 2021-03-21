@@ -10,10 +10,10 @@ namespace BroadcastersCrossCutting.BaseControler
     [ApiController]
     public abstract class BaseController : ControllerBase
     {
-        public new IActionResult Response(NotificationResultDto resultDto)
+        protected new IActionResult Response(NotificationResultDto resultDto)
          => resultDto.Sucess ? (IActionResult)Ok(resultDto) : (IActionResult)BadRequest(resultDto);
 
-        public IActionResult GetResponse(object obj)
+        protected IActionResult GetResponse(object obj)
             => obj != null ? (IActionResult)Ok(obj) : (IActionResult)NoContent();
         
     }

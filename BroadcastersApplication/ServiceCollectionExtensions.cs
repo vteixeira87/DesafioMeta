@@ -22,6 +22,7 @@ namespace BroadcastersApplication
 
             services.AddScoped<IBroadcastersAppService, BroadcastersAppService>();
             services.AddScoped<IAudienceAppService, AudienceAppService>();
+            services.AddScoped<IAudienceReportAppService, AudienceReportAppService>();
 
 
             return services;

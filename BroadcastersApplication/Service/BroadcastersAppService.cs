@@ -40,17 +40,7 @@ namespace BroadcastersApplication.Service
 
             return broadcasterResponseList.Any() ? broadcasterResponseList : null;
         }
-
-        public async Task<BroadcastersResponse> GetByIdAsync(string id)
-        {
-            var broadcasters = await _broadcastersRepository.GetByIdAsync(id);
-
-            if (broadcasters != null)
-                return new BroadcastersResponse(broadcasters.Id, broadcasters.Name);
-            else
-                return null;
-        }
-
+         
         public async Task<BroadcastersResponse> GetByNameAsync(string name)
         {
             var broadcasters = await _broadcastersRepository.GetByNameAsync(name);

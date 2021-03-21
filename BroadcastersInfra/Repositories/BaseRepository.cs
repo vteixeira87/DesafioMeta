@@ -16,7 +16,7 @@ namespace BroadcastersInfra.Repositories
     public class BaseRepository<T> : Notifiable<Notification>, IBaseRepository<T> where T : BroadcastersAudit
     {
         protected IMongoCollection<T> Collection { get; }
-
+        protected FilterDefinitionBuilder<T> Builders = Builders<T>.Filter;
         private readonly BroadcastersContext _context;
 
         public BaseRepository(BroadcastersContext context, string collectionName)
