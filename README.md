@@ -9,8 +9,11 @@ EF Core
 Utilizando os patterns
 
 DDD - Domain Drive Design
+
 CQRS - Command Query Responsibility Segregation
+
 Domain Notification
+
 Repository Pattern
 
 Documentação: Swagger
