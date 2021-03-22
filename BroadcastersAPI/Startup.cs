@@ -69,7 +69,7 @@ namespace BroadcastersAPI
                 if (Debugger.IsAttached)
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Audience of Broadcasters API v1");
                 else
-                    c.SwaggerEndpoint("/bookingengine/swagger/v1/swagger.json", "Audience of Broadcasters API V1");
+                    c.SwaggerEndpoint("/Broadcasters/swagger/v1/swagger.json", "Audience of Broadcasters API V1");
 
                 c.DocExpansion(DocExpansion.None);
             });
