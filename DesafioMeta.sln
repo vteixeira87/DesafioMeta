@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BroadcastersAPI", "BroadcastersAPI\BroadcastersAPI.csproj", "{FB4E74D8-E01F-428D-8933-4F69B6B45DC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BroadcastersAPI", "BroadcastersAPI\BroadcastersAPI.csproj", "{FB4E74D8-E01F-428D-8933-4F69B6B45DC3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1F58AA5A-ADAE-406A-B7AB-3F29911D577A}"
 EndProject
@@ -17,13 +17,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - CrossCutting", "4 - CrossCutting", "{993140E3-BB89-41B2-A59D-B1C59DC360A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BroadcastersApplication", "BroadcastersApplication\BroadcastersApplication.csproj", "{A7F4EE01-81CE-4031-BD13-A14E78C29A60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BroadcastersApplication", "BroadcastersApplication\BroadcastersApplication.csproj", "{A7F4EE01-81CE-4031-BD13-A14E78C29A60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BroadcastersDomain", "BroadcastersDomain\BroadcastersDomain.csproj", "{ED390A18-2775-4152-A6B3-74E5314A5B65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BroadcastersDomain", "BroadcastersDomain\BroadcastersDomain.csproj", "{ED390A18-2775-4152-A6B3-74E5314A5B65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BroadcastersInfra", "BroadcastersInfra\BroadcastersInfra.csproj", "{E1306779-7F46-4C30-B64F-C8F163973CDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BroadcastersInfra", "BroadcastersInfra\BroadcastersInfra.csproj", "{E1306779-7F46-4C30-B64F-C8F163973CDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BroadcastersCrossCutting", "BroadcastersCrossCutting\BroadcastersCrossCutting.csproj", "{78B50618-40CA-435D-B590-48887B3E5399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BroadcastersCrossCutting", "BroadcastersCrossCutting\BroadcastersCrossCutting.csproj", "{78B50618-40CA-435D-B590-48887B3E5399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BroadcastersTest", "BroadcastersTest\BroadcastersTest.csproj", "{A22B74EF-CE93-4C71-8043-64DACAAEA794}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{78B50618-40CA-435D-B590-48887B3E5399}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78B50618-40CA-435D-B590-48887B3E5399}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78B50618-40CA-435D-B590-48887B3E5399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A22B74EF-CE93-4C71-8043-64DACAAEA794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22B74EF-CE93-4C71-8043-64DACAAEA794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22B74EF-CE93-4C71-8043-64DACAAEA794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22B74EF-CE93-4C71-8043-64DACAAEA794}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

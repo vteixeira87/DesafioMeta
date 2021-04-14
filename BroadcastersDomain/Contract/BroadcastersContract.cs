@@ -9,22 +9,18 @@ namespace BroadcastersDomain.Contract
     public class BroadcastersContract : Contract<CreateBroadcastersCommand>
     {
         public BroadcastersContract(string id, string brodcastersName)
-        { 
-            if (string.IsNullOrWhiteSpace(id))
-                AddNotification(id, "Id Invalid");
-
-            Requires().Matches(brodcastersName, "^[a-zA-Z0-9 ]*$", brodcastersName);
-            
-            if (string.IsNullOrWhiteSpace(brodcastersName))
-                AddNotification(brodcastersName, "BrodcastersName Invalid");
+        {
+             Requires().                
+                IsNotNullOrWhiteSpace(id, "Id Invalid");
+                Matches(brodcastersName, "^[a-zA-Z0-9 ]*$", brodcastersName);
+                IsNotNullOrWhiteSpace(brodcastersName, "BrodcastersName Invalid");           
         }
 
         public BroadcastersContract(string brodcastersName)
-        { 
-            Requires().Matches(brodcastersName, "^[a-zA-Z0-9 ]*$", brodcastersName);
-
-            if (string.IsNullOrWhiteSpace(brodcastersName))
-                AddNotification(brodcastersName, "BrodcastersName Invalid");
+        {
+            Requires().
+                Matches(brodcastersName, "^[a-zA-Z0-9 ]*$", brodcastersName);
+                IsNotNullOrWhiteSpace(brodcastersName, "BrodcastersName Invalid");
         }
     }
 }
